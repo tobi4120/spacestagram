@@ -1,13 +1,23 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { api_key } from "./api_key";
+import Loader from "./page_elements/loader"
 
 function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [postLoading, setPostLoading] = useState(false);
+  const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     get_images();
   }, [])
 
-  const get_images = async () => {
+  // Function to get images from Nasa API
+  const get_images = async () => { 
+
+    setPostLoading(true);
+
+    // Call API
     const response = await axios.get("https://api.nasa.gov/planetary/apod", {
       params: {
           count: 10,
@@ -15,12 +25,37 @@ function Home() {
       },  
     })
 
-    console.log(response)
+    // Store the images in a useState variable called posts
+    setPosts(oldArray => [...oldArray, ...response.data])
+    console.log(response.data)
+
+    // Change isLoading to false
+    setIsLoading(false);
+    setPostLoading(false);
   }
+
+  if (isLoading) 
+    return <Loader />
 
   return (
     <div className="App">
       <h1>Spacestagram</h1>
+
+      {/* Posts */}
+      <div className="posts">
+        {posts.map((post, index) => {
+          return (
+            <div key={index}>
+              {post.title}
+            </div>
+          )
+        })}
+
+        <div>{postLoading && <Loader />}</div>
+      </div>
+
+      <button onClick={() => get_images()}>Load more</button>
+
     </div>
   );
 }
