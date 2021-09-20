@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { api_key } from "./api_key";
 import Loader from "./page_elements/loader"
+import Post from "./post";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,10 +45,24 @@ function Home() {
       {/* Posts */}
       <div className="posts">
         {posts.map((post, index) => {
+
+          if (posts.length === index + 1) {
+
+            // Add the prop 'lastPost' to track the last post 
+            return <Post 
+                      key={index} 
+                      post={post} 
+                      lastPost={true} 
+                      get_images={get_images}
+                      postLoading={postLoading} /> 
+          }
           return (
-            <div key={index}>
-              {post.title}
-            </div>
+            <Post 
+              key={index} 
+              post={post} 
+              lastPost={false} 
+              get_images={get_images} 
+              postLoading={postLoading}/>
           )
         })}
 
