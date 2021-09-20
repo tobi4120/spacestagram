@@ -82,6 +82,13 @@ button {
   cursor: pointer;
   color: #98002e; }
 
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 100%; }
+
 .page-header {
   margin: 20px; }
   .page-header .credit {

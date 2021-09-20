@@ -28,7 +28,6 @@ function Home() {
 
     // Store the images in a useState variable called posts
     setPosts(oldArray => [...oldArray, ...response.data])
-    console.log(response.data)
 
     // Change isLoading to false
     setIsLoading(false);
@@ -36,7 +35,7 @@ function Home() {
   }
 
   if (isLoading) 
-    return <Loader />
+    return <div style={{ height: '100vh'}}><Loader /></div>
 
   return (
     <div className="App">
