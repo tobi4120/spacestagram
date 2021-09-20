@@ -40,7 +40,11 @@ function Home() {
 
   return (
     <div className="App">
-      <h1>Spacestagram</h1>
+
+      <div className="page-header">
+        <h1 className="nasa-heading">Spacestagram</h1>
+        <p className="credit">Brought to you by NASA's image API</p>
+      </div>
 
       {/* Posts */}
       <div className="posts">
