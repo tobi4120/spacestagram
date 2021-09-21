@@ -1,5 +1,11 @@
 .page-header {
-    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    top: 0;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.3);
 
     .credit {
         color: white;

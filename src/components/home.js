@@ -8,6 +8,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [postLoading, setPostLoading] = useState(false);
   const [posts, setPosts] = useState([]);
+  const [start_date, setStartDate] = useState();
 
   useEffect(() => {
     get_images();
@@ -15,6 +16,8 @@ function Home() {
 
   // Function to get images from Nasa API
   const get_images = async () => { 
+
+    console.log(start_date)
 
     setPostLoading(true);
 
@@ -71,9 +74,6 @@ function Home() {
 
         <div>{postLoading && <Loader />}</div>
       </div>
-
-      <button onClick={() => get_images()}>Load more</button>
-
     </div>
   );
 }

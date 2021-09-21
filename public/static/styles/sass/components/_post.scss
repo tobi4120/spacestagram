@@ -20,6 +20,14 @@
         color: $nasa-light-grey;
         font-weight: 300;
         padding-bottom: 25px;
+
+        &__top {
+            display: flex;
+
+            &__left {
+                flex: 1;
+            }
+        }
     
         &__date {
             font-size: 0.87rem;
@@ -37,7 +45,7 @@
             justify-content: center;
 
             button {
-                margin-top: 15px;
+                margin-top: 25px;
                 text-align: center;
             }
         }

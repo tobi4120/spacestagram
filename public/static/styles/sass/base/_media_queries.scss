@@ -1,0 +1,32 @@
+// 825px
+@media (max-width: 800px) { 
+    .posts {
+        width: 80%;
+    }
+}
+
+// 450px
+@media (max-width: 450px) { 
+    .page-header {
+        text-align: center;
+    }
+
+    .posts {
+        width: 90%;
+    }
+
+    .post {
+        &__info {
+            &__header {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            &__btnContainer {
+                button {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+}

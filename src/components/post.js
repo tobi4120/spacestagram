@@ -19,8 +19,15 @@ export default function Post(props) {
             <img className="post__image" src={props.post.url} alt={props.post.title} />
             
             <div className="post__info">
-                <p className="post__info__date">{props.post.date}</p>
-                <h2 className="post__info__header">{props.post.title}</h2>
+                <div className="post__info__top">
+                    <div className="post__info__top__left">
+                        <p className="post__info__date">{props.post.date}</p>
+                        <h2 className="post__info__header">{props.post.title}</h2>  
+                    </div>    
+                    <div className="heart-icon" onClick={() => set_postLiked(!postLiked)}>
+                        <i className={postLiked? "fas fa-heart": "far fa-heart"}></i>
+                    </div>
+                </div>
 
                 <div className="post__info__btnContainer">
                     <button className="btn-primary" onClick={() => set_showDescription(!showDescription)}>
@@ -33,10 +40,6 @@ export default function Post(props) {
                         {props.post.explanation}
                     </div>
                 }
-            </div>
-            
-            <div className="heart-icon" onClick={() => set_postLiked(!postLiked)}>
-                <i className={postLiked? "fas fa-heart": "far fa-heart"}></i>
             </div>
         </div>
     )
